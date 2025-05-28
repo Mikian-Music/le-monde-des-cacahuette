@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz Cacahuètes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Quiz sur les Cacahuètes</h1>
+    <nav>
+      <button onclick="location.href='index.html'">Retour à l'accueil</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="quiz">
+      <div id="question-container">
+        <div id="question"></div>
+        <div id="answers"></div>
+      </div>
+      <button id="next-btn" style="display:none;">Question suivante</button>
+      <div id="result" style="margin-top: 1rem;"></div>
+    </section>
+  </main>
+
+  <script>
+    const quizData = [
+      {
+        question: "D'où vient la cacahuète ?",
+        answers: [
+          { text: "Amérique du Sud", correct: true },
+          { text: "Afrique", correct: false },
+          { text: "Asie", correct: false },
+          { text: "Europe", correct: false }
+        ]
+      },
+      {
+        question: "Quelle partie de la plante est comestible ?",
+        answers: [
+          { text: "Les feuilles", correct: false },
+          { text: "Les graines (cacahuètes)", correct: true },
+          { text: "Les racines", correct: false },
+          { text: "Les fleurs", correct: false }
+        ]
+      },
+      {
+        question: "Comment pousse la cacahuète ?",
+        answers: [
+          { text: "Sur un arbre", correct: false },
+          { text: "Sous terre", correct: true },
+          { text: "Dans l'eau", correct: false },
+          { text: "Sur une vigne", correct: false }
+        ]
+      },
+      {
+        question: "Le beurre de cacahuète a été inventé en quelle année ?",
+        answers: [
+          { text: "1922", correct: true },
+          { text: "1850", correct: false },
+          { text: "2000", correct: false },
+          { text: "1900", correct: false }
+        ]
+      }
+    ];
+
+    const questionEl = document.getElementById("question");
+    const answersEl = document.getElementById("answers");
+    const nextBtn = document.getElementById("next-btn");
+    const resultEl = document.getElementById("result");
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function showQuestion() {
+      resultEl.textContent = "";
+      nextBtn.style.display = "none";
+      const currentQuestion = quizData[currentQuestionIndex];
+      questionEl.textContent = currentQuestion.question;
+      answersEl.innerHTML = "";
+      currentQuestion.answers.forEach((answer, i) => {
+        const btn = document.createElement("button");
+        btn.textContent = answer.text;
+        btn.className = "answer-btn";
+        btn.onclick = () => selectAnswer(answer.correct, btn);
+        answersEl.appendChild(btn);
+      });
+    }
+
+    function selectAnswer(correct, btn) {
+      if (correct) {
+        btn.style.backgroundColor = "green";
+        score++;
+        resultEl.textContent = "Bonne réponse !";
+      } else {
+        btn.style.backgroundColor = "red";
+        resultEl.textContent = "Mauvaise réponse.";
+      }
+      Array.from(answersEl.children).forEach(b => b.disabled = true);
+      nextBtn.style.display = "inline-block";
+      if(currentQuestionIndex === quizData.length - 1) {
+        nextBtn.textContent = "Voir le score";
+      }
+    }
+
+    nextBtn.onclick = () => {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < quizData.length) {
+        showQuestion();
+      } else {
+        showScore();
+      }
+    };
+
+    function showScore() {
+      questionEl.textContent = `Votre score est ${score} sur ${quizData.length}`;
+      answersEl.innerHTML = "";
+      nextBtn.style.display = "none";
+      resultEl.textContent = "";
+    }
+
+    showQuestion();
+  </script>
+</body>
+</html>

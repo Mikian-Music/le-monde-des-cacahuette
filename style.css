@@ -1,0 +1,230 @@
+/* Reset simple */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f0e6;
+  color: #4b3e2f;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: #d69e2e;
+  padding: 1rem;
+  text-align: center;
+  color: white;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav button {
+  background: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.3rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+nav button:hover {
+  background: #b27c00;
+  color: white;
+}
+
+main {
+  flex: 1;
+  padding: 1rem 2rem;
+  max-width: 960px;
+  margin: auto;
+  width: 100%;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.3rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin: 1rem 0;
+  color: #a46f00;
+}
+
+/* Index types cards */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.card {
+  background: white;
+  box-shadow: 0 0 5px #d4b752;
+  border-radius: 8px;
+  max-width: 300px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* Mascotte */
+.mascotte {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.mascotte img {
+  width: 120px;
+  height: auto;
+}
+
+/* Timeline */
+.timeline {
+  border-left: 3px solid #d69e2e;
+  margin: 1rem 0;
+  padding-left: 1rem;
+}
+
+.event {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.event::before {
+  content: "";
+  position: absolute;
+  left: -11px;
+  top: 5px;
+  width: 18px;
+  height: 18px;
+  background: #d69e2e;
+  border-radius: 50%;
+}
+
+.date {
+  font-weight: bold;
+  color: #a46f00;
+}
+
+.description {
+  margin-left: 0.5rem;
+}
+
+/* Quiz */
+.quiz {
+  text-align: center;
+}
+
+.answer-btn {
+  display: block;
+  margin: 0.5rem auto;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #d69e2e;
+  border-radius: 6px;
+  cursor: pointer;
+  background: white;
+  width: 60%;
+  max-width: 300px;
+  transition: background-color 0.3s ease;
+}
+
+.answer-btn:hover:not(:disabled) {
+  background: #f0d87a;
+}
+
+#next-btn {
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  font-weight: bold;
+  background: #d69e2e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Recipes */
+.recipes article {
+  background: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 5px #d4b752;
+}
+
+/* Definition */
+.definition p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+/* Book */
+#book-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #d69e2e;
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+#next-page {
+  margin-top: 1.5rem;
+  padding: 0.8rem 2rem;
+  background: #d69e2e;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Canvas peanuts */
+#fallingPeanuts {
+  position: fixed;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav button {
+    margin: 0.3rem 0.5rem;
+    width: 90%;
+  }
+
+  .mascotte {
+    flex-direction: column;
+  }
+}

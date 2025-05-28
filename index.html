@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Le Monde des Cacahuètes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Le Monde des Cacahuètes</h1>
+    <nav>
+      <button onclick="location.href='frise.html'">Frise chronologique</button>
+      <button onclick="location.href='definition.html'">C’est quoi une cacahuète ?</button>
+      <button onclick="location.href='quiz.html'">Quiz</button>
+      <button onclick="location.href='recettes.html'">Recettes</button>
+      <button onclick="location.href='livre.html'">Petit livre</button>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Types de Cacahuètes</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Peanuts_in_shells.jpg/640px-Peanuts_in_shells.jpg" alt="Cacahuètes Virginia" />
+          <p><strong>Virginia</strong> – Cultivée principalement aux États-Unis, utilisée pour les cacahuètes grillées entières.</p>
+        </div>
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Raw_peanuts.jpg/640px-Raw_peanuts.jpg" alt="Cacahuètes Spanish" />
+          <p><strong>Spanish</strong> – Petites, à peau rouge, utilisées pour le beurre de cacahuète.</p>
+        </div>
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Boiled_peanuts.jpg/640px-Boiled_peanuts.jpg" alt="Cacahuètes Valencia" />
+          <p><strong>Valencia</strong> – Douces, souvent bouillies, très populaires dans le sud des États-Unis.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Notre mascotte</h2>
+      <div class="mascotte">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Peanut_character.svg/640px-Peanut_character.svg.png" alt="Mascotte Captain Cacahuète" />
+        <p><strong>Captain Cacahuète</strong> est le héros croquant de notre site ! Il adore explorer les champs de cacahuètes et raconter leur histoire. Suivez-le pour découvrir tout sur cet aliment fabuleux !</p>
+      </div>
+    </section>
+  </main>
+
+  <canvas id="fallingPeanuts"></canvas>
+  <script src="fall.js"></script>
+</body>
+</html>

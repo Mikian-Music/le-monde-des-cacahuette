@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Petit Livre des Cacahuètes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Le Petit Livre des Cacahuètes</h1>
+    <nav>
+      <button onclick="location.href='index.html'">Retour à l'accueil</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="book-section">
+      <p id="text"></p>
+      <button id="next-page">Lire la suite</button>
+    </section>
+  </main>
+
+  <script>
+    const pages = [
+      "Il était une fois, dans un champ ensoleillé, un groupe de cacahuètes qui avaient pris vie. Elles adoraient discuter de leurs aventures sous terre.",
+      "Captain Cacahuète, le plus courageux, racontait toujours comment il avait évité une taupe affamée.",
+      "Une petite cacahuète nommée Pépita rêvait de voyager au-delà du champ, découvrir le monde des humains et leurs mystères.",
+      "Un jour, une grosse pluie les força à se réfugier dans une cachette secrète, et ils se lièrent d'amitié avec une coccinelle voyageuse.",
+      "Ensemble, ils vécurent des aventures incroyables, découvrant que même les plus petites cacahuètes peuvent être de grands héros."
+    ];
+
+    let currentPage = 0;
+
+    const textEl = document.getElementById("text");
+    const btn = document.getElementById("next-page");
+
+    function showPage() {
+      textEl.textContent = pages[currentPage];
+      if (currentPage === pages.length - 1) {
+        btn.textContent = "Fin";
+      } else {
+        btn.textContent = "Lire la suite";
+      }
+    }
+
+    btn.onclick = () => {
+      if (currentPage < pages.length - 1) {
+        currentPage++;
+        showPage();
+      } else {
+        currentPage = 0;
+        showPage();
+      }
+    };
+
+    showPage();
+  </script>
+</body>
+</html>
